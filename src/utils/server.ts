@@ -7,12 +7,12 @@ import config from "config";
 function creatServer() {
   const app = express();
 
-  // app.use(
-  //   cors({
-  //     origin: config.get("origin"),
-  //     credentials: true,
-  //   })
-  // );
+  app.use(
+    cors({
+      origin: config.get("origin"),
+      credentials: true,
+    })
+  );
 
   app.use(express.json());
 
