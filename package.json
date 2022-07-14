@@ -6,8 +6,8 @@
   "author": "Ernest ",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
-    "test": "jest"
+    "start": "node build/src/app.js",
+    "postinstall": "tsc"
   },
   "dependencies": {
     "axios": "^0.27.2",
