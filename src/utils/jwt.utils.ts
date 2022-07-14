@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import config from "config";
 
+// keys
 const privateKey = config.get<string>("privateKey");
 const publicKey = config.get<string>("publicKey");
 
