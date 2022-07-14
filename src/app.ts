@@ -2,7 +2,7 @@ import config from "config";
 import connect from "./utils/connect";
 import logger from "./utils/logger";
 import creatServer from "./utils/server";
-
+// the port
 const port = process.env.PORT || config.get<number>("port");
 
 const app = creatServer();
