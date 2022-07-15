@@ -9,7 +9,7 @@
     "start:dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "start": "node build/src/app.js",
     "postinstall": "tsc",
-    "heroku-postbuild": "cpy src/utils/views/index.html build/src/utils/views/",
+    "heroku-postbuild": "cpy src/utils/views/index.html /app/build/src/utils/views/index.html",
     "test": "jest"
   },
   "dependencies": {
