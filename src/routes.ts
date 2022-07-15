@@ -28,6 +28,10 @@ import {
   updateProductSchema,
 } from "./schema/product.schema";
 import { googleOauthHandler } from "./controller/userSession.controller";
+import path from "path";
+const path_to_html_file = "/src/google310c64e6ddc581a3.html";
+
+// console.log(path.join(__dirname, path_to_html_file));
 
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 
@@ -45,6 +49,12 @@ function routes(app: Express) {
   );
 
   app.get("/api/me", requireUser, getCurrentUser);
+  app.get(
+    path.join(__dirname, path_to_html_file),
+    (req: Request, res: Response) => {
+      res.sendStatus(200);
+    }
+  );
 
   // Session
   app.post(
