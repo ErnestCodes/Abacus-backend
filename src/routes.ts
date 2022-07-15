@@ -49,10 +49,9 @@ function routes(app: Express) {
   );
 
   app.get("/api/me", requireUser, getCurrentUser);
-  app.get("/index", function (req, res) {
-    res.sendStatus(200);
+  app.get("/", function (req, res) {
+    res.render("index");
   });
-
   // Session
   app.post(
     "/api/sessions",

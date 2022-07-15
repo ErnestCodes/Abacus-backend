@@ -16,9 +16,9 @@ function creatServer() {
   );
 
   // Register '.mustache' extension with The Mustache Express
-  app.engine("mustache", mustacheExpress());
+  app.engine("html", mustacheExpress());
 
-  app.set("view engine", "mustache");
+  app.set("view engine", "html");
   app.set("views", __dirname + "/views");
 
   app.use(express.json());
