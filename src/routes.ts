@@ -49,12 +49,9 @@ function routes(app: Express) {
   );
 
   app.get("/api/me", requireUser, getCurrentUser);
-  app.get(
-    path.join(__dirname, path_to_html_file),
-    (req: Request, res: Response) => {
-      res.sendStatus(200);
-    }
-  );
+  app.get("/index", function (req, res) {
+    res.sendStatus(200);
+  });
 
   // Session
   app.post(
