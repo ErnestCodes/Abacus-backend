@@ -88,10 +88,10 @@ export async function googleOauthHandler(req: Request, res: Response) {
     // res.cookie("accessToken", accessToken, accessTokenCookieOptions);
     // res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
 
-    res.send({ accessToken, refreshToken });
-
     // redirect back to client
     res.redirect("http://localhost:3000");
+
+    return { accessToken, refreshToken };
   } catch (error: any) {
     log.error(error, "Failed to authorize Google user");
     return res.redirect(`${config.get("origin")}/oauth/error`);

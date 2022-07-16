@@ -4,6 +4,7 @@ import routes from "../routes";
 import cors from "cors";
 import config from "config";
 import mustacheExpress from "mustache-express";
+import session from "express-session";
 
 function creatServer() {
   const app = express();
@@ -15,6 +16,10 @@ function creatServer() {
       origin: config.get("origin"),
       credentials: true,
     })
+  );
+
+  app.use(
+    session({ secret: "incognito", resave: false, saveUninitialized: false })
   );
 
   // Register '.mustache' extension with The Mustache Express
