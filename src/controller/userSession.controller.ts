@@ -63,7 +63,7 @@ export async function googleOauthHandler(req: Request, res: Response) {
     // console.log({ session });
 
     // create an access token
-    const accessToken = signJwt(
+    let accessToken = signJwt(
       {
         ...(user.toJSON() as any),
         session: session._id as any,
@@ -74,7 +74,7 @@ export async function googleOauthHandler(req: Request, res: Response) {
     );
 
     //   create a refresh token
-    const refreshToken = signJwt(
+    let refreshToken = signJwt(
       {
         ...(user.toJSON() as any),
         session: session._id as any,
@@ -88,15 +88,13 @@ export async function googleOauthHandler(req: Request, res: Response) {
     // res.cookie("accessToken", accessToken, accessTokenCookieOptions);
     // res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
 
-    const details = {
-      access: encodeURIComponent(accessToken),
-      refresh: encodeURIComponent(refreshToken),
-    };
+    const access = encodeURIComponent(accessToken);
+    const refresh = encodeURIComponent(refreshToken);
+
+    const uri = `http://localhost:3000?data=${access}&detail=${refresh}`;
 
     // redirect back to client
-    res.redirect("http://localhost:3000?data=" + details);
-
-    return { accessToken, refreshToken };
+    res.redirect(uri);
   } catch (error: any) {
     log.error(error, "Failed to authorize Google user");
     return res.redirect(`${config.get("origin")}/oauth/error`);
