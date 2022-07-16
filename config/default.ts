@@ -6,7 +6,7 @@ export default {
   dbUri:
     "mongodb+srv://emmy123:emmy123@devnetwork.r0rje.mongodb.net/AriesDB?retryWrites=true&w=majority",
   saltWorkFactor: 10,
-  accessTokenTtl: "60m",
+  accessTokenTtl: "1y",
   refreshTokenTtl: "1y",
   privateKey: `-----BEGIN RSA PRIVATE KEY-----
 MIICWgIBAAKBgHVAobTSOPHrLtPXqN4NjUPPVZrmkak7ha1vlOmNYgl2ztGJmUeI
