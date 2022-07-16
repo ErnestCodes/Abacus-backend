@@ -84,9 +84,11 @@ export async function googleOauthHandler(req: Request, res: Response) {
       }
     );
 
-    // set cookies
-    res.cookie("accessToken", accessToken, accessTokenCookieOptions);
-    res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
+    // // set cookies
+    // res.cookie("accessToken", accessToken, accessTokenCookieOptions);
+    // res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
+
+    res.send({ accessToken, refreshToken });
 
     // redirect back to client
     res.redirect("http://localhost:3000");
