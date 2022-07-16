@@ -32,7 +32,7 @@ export async function googleOauthHandler(req: Request, res: Response) {
     // get the id and access token with the code
     const { id_token, access_token } = await getGoogleOauthTokens({ code });
 
-    // console.log({ id_token, access_token });
+    log.info({ id_token, access_token });
     // get the user with token
     const googleUser = await getGoogleUser({ id_token, access_token });
     // jwt.decode(id_token)
@@ -41,7 +41,7 @@ export async function googleOauthHandler(req: Request, res: Response) {
       return res.status(403).send("Google Account is not verfied");
     }
 
-    // console.log({ googleUser });
+    log.info({ googleUser });
     // upsert the user
     const user = await findAndUpdateUser(
       { email: googleUser.email },
