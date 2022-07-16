@@ -8,6 +8,8 @@ import mustacheExpress from "mustache-express";
 function creatServer() {
   const app = express();
 
+  app.set("trust proxy", 1);
+
   app.use(
     cors({
       origin: config.get("origin"),
