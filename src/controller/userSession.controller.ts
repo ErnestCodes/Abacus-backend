@@ -11,7 +11,7 @@ import log from "../utils/logger";
 
 const accessTokenCookieOptions: CookieOptions = {
   maxAge: 1000 * 60 * 60 * 24 * 365 * 7, // 7 days
-  httpOnly: false,
+  httpOnly: true,
   domain: "http://localhost:3000",
   path: "/",
   sameSite: "lax",
