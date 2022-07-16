@@ -88,8 +88,13 @@ export async function googleOauthHandler(req: Request, res: Response) {
     // res.cookie("accessToken", accessToken, accessTokenCookieOptions);
     // res.cookie("refreshToken", refreshToken, refreshTokenCookieOptions);
 
+    const details = {
+      access: encodeURIComponent(accessToken),
+      refresh: encodeURIComponent(refreshToken),
+    };
+
     // redirect back to client
-    res.redirect("http://localhost:3000");
+    res.redirect("http://localhost:3000?data=" + details);
 
     return { accessToken, refreshToken };
   } catch (error: any) {
