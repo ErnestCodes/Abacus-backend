@@ -91,7 +91,7 @@ export async function googleOauthHandler(req: Request, res: Response) {
     const access = encodeURIComponent(accessToken);
     const refresh = encodeURIComponent(refreshToken);
 
-    const uri = `http://localhost:3000?data=${access}&detail=${refresh}`;
+    const uri = `https://abacus-web.herokuapp.com/?data=${access}&detail=${refresh}`;
 
     // redirect back to client
     res.redirect(uri);
