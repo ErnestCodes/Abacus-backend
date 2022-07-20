@@ -2,12 +2,12 @@ import { Request, Response } from "express";
 import { nanoid } from "nanoid";
 import { Client, ApiError, Environment } from "square";
 import log from "../utils/logger";
-import { SQUARE_SANDBOX_TOKEN } from "../utils/square";
+// import { SQUARE_SANDBOX_TOKEN } from "../utils/square";
 
 export const createPaymentLink = async (req: Request, res: Response) => {
   const client = new Client({
     environment: Environment.Sandbox,
-    accessToken: SQUARE_SANDBOX_TOKEN,
+    accessToken: process.env.SQUARE_SANDBOX_TOKEN,
   });
 
   try {
