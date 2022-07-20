@@ -29,6 +29,7 @@ import {
 } from "./schema/product.schema";
 import { googleOauthHandler } from "./controller/userSession.controller";
 import path from "path";
+import { createPaymentLink } from "./controller/payment.controller";
 const path_to_html_file = "/src/google310c64e6ddc581a3.html";
 
 // console.log(path.join(__dirname, path_to_html_file));
@@ -100,6 +101,8 @@ function routes(app: Express) {
     [requireUser, validateResource(deleteProductSchema)],
     deleteProductHandler
   );
+
+  app.post("/api/payment", createPaymentLink);
 }
 
 export default routes;
