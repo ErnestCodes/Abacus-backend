@@ -24,7 +24,7 @@ export const createPaymentLink = async (req: Request, res: Response) => {
             quantity: "1",
             itemType: "ITEM",
             basePriceMoney: {
-              amount: parseInt(item.price),
+              amount: parseInt(item.price + "00"),
               currency: "GBP",
             },
           })),
