@@ -16,15 +16,15 @@ export const createPaymentLink = async (req: Request, res: Response) => {
       idempotencyKey: nanoid(),
       order: {
         locationId: "LKP57Q2WHYP9D",
-        customerId: nanoid(8),
+        customerId: nanoid(),
         lineItems: [
           items.map((item: any) => ({
-            uid: nanoid(11),
+            uid: nanoid(),
             name: item.title,
             quantity: "1",
             itemType: "ITEM",
             basePriceMoney: {
-              amount: parseInt(item.price + "00"),
+              amount: parseInt(item.price),
               currency: "GBP",
             },
           })),
