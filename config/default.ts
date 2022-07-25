@@ -2,7 +2,7 @@ require("dotenv").config();
 
 export default {
   port: 1337,
-  origin: "https://abacus-web.herokuapp.com/",
+  origin: "https://abacus-355820.web.app/",
   dbUri:
     "mongodb+srv://emmy123:emmy123@devnetwork.r0rje.mongodb.net/AriesDB?retryWrites=true&w=majority",
   saltWorkFactor: 10,
