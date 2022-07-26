@@ -17,7 +17,7 @@ export const createPaymentLink = async (req: Request, res: Response) => {
       quickPay: {
         name: names,
         priceMoney: {
-          amount: totalAmount as any,
+          amount: parseInt(totalAmount + "00") as any,
           currency: "GBP",
         },
         locationId: "LKP57Q2WHYP9D",
