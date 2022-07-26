@@ -30,6 +30,7 @@ import {
 import { googleOauthHandler } from "./controller/userSession.controller";
 import path from "path";
 import { createPaymentLink } from "./controller/payment.controller";
+import { createOrderHandler } from "./controller/order.controller";
 const path_to_html_file = "/src/google310c64e6ddc581a3.html";
 
 // console.log(path.join(__dirname, path_to_html_file));
@@ -103,6 +104,7 @@ function routes(app: Express) {
   );
 
   app.post("/api/payment", createPaymentLink);
+  app.post("/api/order", createOrderHandler);
 }
 
 export default routes;
