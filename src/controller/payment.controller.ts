@@ -27,6 +27,18 @@ export const createPaymentLink = async (req: Request, res: Response) => {
               amount: parseInt(item.price),
               currency: "GBP",
             },
+            appliedTaxes: [
+              {
+                uid: nanoid(9),
+                taxUid: nanoid(6),
+              },
+            ],
+            appliedDiscounts: [
+              {
+                uid: nanoid(),
+                discountUid: nanoid(),
+              },
+            ],
           })),
         ],
       },
