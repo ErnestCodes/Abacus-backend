@@ -43,8 +43,8 @@ export const createPaymentLink = async (req: Request, res: Response) => {
         ],
       },
 
-      // source: "abacus",
-      // paymentNote: "Order has been received",
+      source: "abacus",
+      paymentNote: "Order has been received",
     });
 
     // console.log(paymentLink.result.paymentLink);
