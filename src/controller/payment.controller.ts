@@ -11,12 +11,11 @@ export const createPaymentLink = async (req: Request, res: Response) => {
   });
 
   try {
-    const { items, totalAmount } = req.body;
-    const title = [...items.map((item: any) => item.title)].toString();
+    const { totalAmount, names } = req.body;
     const paymentLink = await client.checkoutApi.createPaymentLink({
       idempotencyKey: nanoid(),
       quickPay: {
-        name: title,
+        name: names,
         priceMoney: {
           amount: parseInt(totalAmount + "00") as any,
           currency: "GBP",
