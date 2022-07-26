@@ -11,46 +11,17 @@ export const createPaymentLink = async (req: Request, res: Response) => {
   });
 
   try {
-    const { totalAmount, names, items } = req.body;
+    const { totalAmount, names } = req.body;
     const paymentLink = await client.checkoutApi.createPaymentLink({
       idempotencyKey: nanoid(),
-      // quickPay: {
-      //   name: names,
-      //   priceMoney: {
-      //     amount: parseInt(totalAmount + "00") as any,
-      //     currency: "GBP",
-      //   },
-      //   locationId: "LKP57Q2WHYP9D",
-      // },
-      order: {
+      quickPay: {
+        name: names,
+        priceMoney: {
+          amount: parseInt(totalAmount + "00") as any,
+          currency: "GBP",
+        },
         locationId: "LKP57Q2WHYP9D",
-        customerId: nanoid(),
-        lineItems: [
-          items.map((item: any) => ({
-            uid: nanoid(),
-            name: item.title,
-            quantity: "1",
-            itemType: "ITEM",
-            basePriceMoney: {
-              amount: parseInt(item.price + "00"),
-              currency: "GBP",
-            },
-            appliedTaxes: [
-              {
-                uid: nanoid(9),
-                taxUid: nanoid(6),
-              },
-            ],
-            appliedDiscounts: [
-              {
-                uid: nanoid(),
-                discountUid: nanoid(),
-              },
-            ],
-          })),
-        ],
       },
-
       source: "abacus",
       paymentNote: "Order has been received",
     });
