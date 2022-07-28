@@ -5,11 +5,11 @@ import log from "../utils/logger";
 export const createOrderHandler = async (req: Request, res: Response) => {
   const { items, user } = req.body;
 
-  log.info(user);
+  log.info(items.user.email);
 
   try {
     const orders = await findAndUpdateUser(
-      { email: user },
+      { email: items.user.email },
       { orders: items },
       { new: true }
     );
