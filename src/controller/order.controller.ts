@@ -5,7 +5,7 @@ import log from "../utils/logger";
 export const createOrderHandler = async (req: Request, res: Response) => {
   const { items, user } = req.body;
 
-  log.info(items);
+  log.info(user);
 
   try {
     const orders = await findAndUpdateUser(
@@ -13,6 +13,8 @@ export const createOrderHandler = async (req: Request, res: Response) => {
       { orders: items },
       { new: true }
     );
+
+    log.info(orders);
 
     return res.send(orders);
   } catch (error: any) {
