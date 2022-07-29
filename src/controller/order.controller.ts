@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import UserModel from "../models/user.model";
 import { findAndUpdateUser } from "../service/user.service";
 import log from "../utils/logger";
 
@@ -14,7 +15,7 @@ export const createOrderHandler = async (req: Request, res: Response) => {
       { new: true }
     );
 
-    log.info(orders);
+    // log.info(orders);
 
     return res.send(orders);
   } catch (error: any) {
